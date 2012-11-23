@@ -1,0 +1,82 @@
+NOTE: 1 i 2 pytanie pozwalają już na starcie przefiltrować taryfy!
+
+
+Wybierz preferowaną sieć:
+  - dowolna
+  - Plus
+  - Play
+  - T-Mobile
+  - Orange
+
+===========================================
+
+Maksymalne miesięczne wydatki
+  - 30
+  - 50
+  - 80
+  - 9999 (bez limitu :D)
+
+===========================================
+
+Co robisz najczęściej?
+  - dzwonię
+  - smsuję
+  - korzystam z internetu
+  - dzwonię i smsuję
+  - wszystko
+
+===========================================
+
+Czy interesują Cię pakiety obniżające koszty rozmowy?
+  - tak, do wszystkich sieci
+  - tak, do mojej sieci
+  - nie interesują mnie
+
+===========================================
+
+Czy interesują Cię pakietu obniżające koszty smsów?
+  - tak, do wszystkich sieci
+  - tak, do mojej sieci
+  - nie interesują mnie
+
+===========================================
+
+Ile transferu zużywasz miesięcznie w ramach internetu mobilnego?
+  - do 100MB
+  - do 500MB
+  - do 1GB
+  - powyżej 1GB
+  - nie interesuje mnie internet
+
+===========================================
+
+Czy masz wybrane osoby z którymi przeprowadzasz większość rozmów / do których wysyłasz większość smsów?
+  - tak, jedną
+  - tak, 1 do 3 osób
+  - rozmawiam z różnymi osobami / nie potrafię wskazać osób z którymi rozmawiam najczęściej
+
+===========================================
+
+Jak często rozmawiasz?
+  - całymi dniami
+  - kilka razy dziennie
+  - raz dziennie
+  - kilka razy w tygodniu
+  - sporadycznie
+
+===========================================
+
+Jak często wysyłasz sms?
+  - całymi dniami
+  - kilka razy dziennie
+  - raz dziennie
+  - kilka razy w tygodniu
+  - sporadycznie
+
+===========================================
+
+Ile trwają Twoje rozmowy?
+  - bardzo krótko
+  - kilka minut
+  - do 30 minut
+  - powyżej 30 minut

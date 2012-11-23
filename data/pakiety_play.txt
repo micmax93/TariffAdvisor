@@ -1,0 +1,41 @@
+Pakiety Play
+
+1. SMS
+
+  1.1 Nielimitowane SMS do wszystkich 7 dni
+    Koszt: 5zł
+    Ważność: 7 dni
+
+  1.2 Nielimitowane SMS do wszystkich 30 dni
+    Koszt: 10zł
+    Ważność: 30 dni
+
+
+2. Internet
+
+  2.1 Tydzień
+    Koszt: 5zł
+    Ważność: 7 dni
+    Dane: 0.25 GB
+
+  2.2 Miesiąc
+    Koszt: 10zł
+    Ważność: 30 dni
+    Dane: 1 GB
+
+
+3. Rozmowy
+
+  3.1 Pakiet 100 minut
+    Koszt: 10zł
+    Koszt rozmowy: 0zł w Play i na stacjonarne
+    Ważność: 30 dni
+    
+  3.2 Pakiet 30 minut
+    Koszt: 12zł do wszystkich
+    Koszt rozmowy: 0zł
+
+  3.3 Rozmowy w Play
+    Koszt: 10 zł
+    Koszt rozmowy: 0zł tylko w Play
+    Ważność: 30 dni 

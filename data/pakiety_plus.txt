@@ -1,0 +1,55 @@
+Plus pakiety
+
+
+1. Internet w telefonie
+
+  1.1 Pakiet internetowy 2zł Non Stop
+    Dane: 0.1 GB
+    Cena: 2zł
+    Ważność: 1 dni
+
+  1.2 Pakiet internetowy 7zł Non Stop
+    Dane: 0.1 GB
+    Cena: 7zł
+    Ważność: 31 dni
+
+  1.3 Pakiet internetowy 9zł Non Stop
+    Dane: 0.15 GB
+    Cena: 9zł
+    Ważność: 31 dni
+
+  1.4 Pakiet internetowy 15zł Non Stop
+    Dane: 0.5 GB
+    Cena: 15zł
+    Ważność: 31 dni
+
+
+2. Sms
+
+  2.2 Pakiet 500SMS w sieci Plus
+    Ilość sms: 500 w Plusie
+    Koszt: 5zł
+    Ważność: 31 dni
+
+  2.3 Pakiet 250 SMS do wszystkich
+    Ilość sms: 250 do wszystkich
+    Koszt: 10zł
+    Ważność: 31 dni
+
+
+3. Tanio do wszystkich sieci
+    Koszt: 1,50 zł
+    Koszt rozmowy: 29gr / min do wszystkich poza Play
+    Opis: Obniża rozmowy do dużych sieci
+    Ważność: 31 dni
+
+4. Wybrany numer w Plusie 
+    Koszt: 1,50 zł / numer
+    Max ilość numerów: 5 zł
+    Rozmowy i sms: 0zł
+    Ważność: 31dni
+
+5. Wybrany numer we wszystkich sieciach
+    Koszt: 1,50zł
+    Rozmowy: 19gr/min
+    Ważność: 31dni
