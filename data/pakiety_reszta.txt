@@ -1,43 +1,43 @@
-orange
-	Pakiet100SMS		100sms	5z≥
-	Pakiet37MMS			37mms	5z≥
-	PakietSMSgrosze		1sms/gr	6z≥
-	pakiet1000sms		1000sms	10z≥	tylko do orange
+Ôªøorange
+	Pakiet100SMS		100sms	5z≈Ç
+	Pakiet37MMS			37mms	5z≈Ç
+	PakietSMSgrosze		1sms/gr	6z≈Ç
+	pakiet1000sms		1000sms	10z≈Ç	tylko do orange
 
-	pakiet1000minut		1gr/min	10z≥	do orange	tylko orange one
-	wybrane numery		3 darmowe numery	6z≥ w orange	tylko orange one
-	popGadane			20gr/min	6z≥	do orange	tylko orange pop
-	popMinuty			10gr/min	12z≥	do orange	tylko orange pop
-	wygadany pakiet		18gr/min	9z≥	do wszystkich	orange one i pop
+	pakiet1000minut		1gr/min	10z≈Ç	do orange	tylko orange one
+	wybrane numery		3 darmowe numery	6z≈Ç w orange	tylko orange one
+	popGadane			20gr/min	6z≈Ç	do orange	tylko orange pop
+	popMinuty			10gr/min	12z≈Ç	do orange	tylko orange pop
+	wygadany pakiet		18gr/min	9z≈Ç	do wszystkich	orange one i pop
 	
-	Internetowy30dni	100MB	10z≥	orange pop/one/go
-	InternetowyXXL		500MB	15z≥	orange pop/one/go
+	Internetowy30dni	100MB	10z≈Ç	orange pop/one/go
+	InternetowyXXL		500MB	15z≈Ç	orange pop/one/go
 	
-	PakietInternetowy1	200MB	5z≥
-	PakietInternetowy2	600MB	10z≥
-	PakietInternetowy3	1000MB	20z≥
+	PakietInternetowy1	200MB	5z≈Ç
+	PakietInternetowy2	600MB	10z≈Ç
+	PakietInternetowy3	1000MB	20z≈Ç
 	
 T-Mobile
-	Pakiet600sms	600sms 12z≥	do tmobile	NowyTakTak
-	Pakiet100mms	100mms 12z≥	do tmobile	NowyTakTak
+	Pakiet600sms	600sms 12z≈Ç	do tmobile	NowyTakTak
+	Pakiet100mms	100mms 12z≈Ç	do tmobile	NowyTakTak
 	
-	Pakiet150Minut		150minut do T mobile	9z≥		NowyTakTak
-	numerkiZaGrosze		3 darmowe numery	9z≥
+	Pakiet150Minut		150minut do T mobile	9z≈Ç		NowyTakTak
+	numerkiZaGrosze		3 darmowe numery	9z≈Ç
 	
-	InternetWTelefonie	100MB	9z≥
-	InternetWTelefonie	350MB	12z≥
-	InternetWTelefonie	600MB	16z≥
-	InternetWTelefonie	1200MB	29z≥
+	InternetWTelefonie	100MB	9z≈Ç
+	InternetWTelefonie	350MB	12z≈Ç
+	InternetWTelefonie	600MB	16z≈Ç
+	InternetWTelefonie	1200MB	29z≈Ç
 	
 Heyah
-	InternetNonStop	100MB	9z≥
-	InternetNonStopL	600MB	15z≥
-	InternetNonStop	1200MB	25z≥
+	InternetNonStop	100MB	9z≈Ç
+	InternetNonStopL	600MB	15z≈Ç
+	InternetNonStop	1200MB	25z≈Ç
 	
-	do≥adowanie +30z≥ darmowe rozmowy w heyah
-	Rozmowy bez limitu	9z≥	rozmowy bez limitu
+	do≈Çadowanie +30z≈Ç darmowe rozmowy w heyah
+	Rozmowy bez limitu	9z≈Ç	rozmowy bez limitu
 	 
-	1000SMSdowszystkich	1000sms	4z≥ do wsystkich
+	1000SMSdowszystkich	1000sms	4z≈Ç do wsystkich
 	
 	
 	
