@@ -1,0 +1,53 @@
+﻿orange
+	Pakiet100SMS		100sms	5zł
+	Pakiet37MMS			37mms	5zł
+	PakietSMSgrosze		1sms/gr	6zł
+	pakiet1000sms		1000sms	10zł	tylko do orange
+
+	pakiet1000minut		1gr/min	10zł	do orange	tylko orange one
+	wybrane numery		3 darmowe numery	6zł w orange	tylko orange one
+	popGadane			20gr/min	6zł	do orange	tylko orange pop
+	popMinuty			10gr/min	12zł	do orange	tylko orange pop
+	wygadany pakiet		18gr/min	9zł	do wszystkich	orange one i pop
+	
+	Internetowy30dni	100MB	10zł	orange pop/one/go
+	InternetowyXXL		500MB	15zł	orange pop/one/go
+	
+	PakietInternetowy1	200MB	5zł
+	PakietInternetowy2	600MB	10zł
+	PakietInternetowy3	1000MB	20zł
+	
+T-Mobile
+	Pakiet600sms	600sms 12zł	do tmobile	NowyTakTak
+	Pakiet100mms	100mms 12zł	do tmobile	NowyTakTak
+	
+	Pakiet150Minut		150minut do T mobile	9zł		NowyTakTak
+	numerkiZaGrosze		3 darmowe numery	9zł
+	
+	InternetWTelefonie	100MB	9zł
+	InternetWTelefonie	350MB	12zł
+	InternetWTelefonie	600MB	16zł
+	InternetWTelefonie	1200MB	29zł
+	
+Heyah
+	InternetNonStop	100MB	9zł
+	InternetNonStopL	600MB	15zł
+	InternetNonStop	1200MB	25zł
+	
+	doładowanie +30zł darmowe rozmowy w heyah
+	Rozmowy bez limitu	9zł	rozmowy bez limitu
+	 
+	1000SMSdowszystkich	1000sms	4zł do wsystkich
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
