@@ -1,49 +1,12 @@
-(deftemplate taryfa
-	(slot	nazwa	(type SYMBOL)	)
-	(slot	sieæ	(type SYMBOL)	)
-	(slot	typ		(type SYMBOL)	)
-)
-
-(deftemplate cennik
-	(slot	taryfa	(type SYMBOL)	)
-	(multislot	sieæ_docelowa	(type SYMBOL)	)
-	(slot	min	(type NUMBER)	)
-	(slot	sms	(type NUMBER)	)
-	(slot	mms	(type NUMBER)	)
-)
-
-(deftemplate transfer
-	(slot	taryfa	(type SYMBOL)	)
-	(slot	iloœæ	(type NUMBER) (default 0)	)
-	(slot	cena	(type NUMBER)	)
-)
-
-(deftemplate doladowania
-	(multislot	taryfa	(type SYMBOL)	)
-	(slot	cena	(type NUMBER)	)
-	(slot	bonus	(type NUMBER)	)
-	(slot	waznoœæ	(type NUMBER)	)
-)
-
-(deftemplate bonus
-	(multislot	taryfa	(type SYMBOL)	)
-	(slot	cena	(type NUMBER)	)
-
-	(slot	sms	(type NUMBER)	(default 0)	)
-	(slot	min	(type NUMBER)	(default 0)	)
-	(slot	net	(type NUMBER)	(default 0)	)
-)
-
-
 ;;;;;;;;;;;;; ORANGE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 (deffacts taryfyOrange
-	(taryfa (sieæ Orange) (nazwa OrangeOne))
-	(taryfa (sieæ Orange) (nazwa OrangePop))
-	(taryfa (sieæ Orange) (nazwa OrangeGo25))
-	(taryfa (sieæ Orange) (nazwa OrangeGo50))
-	(taryfa (sieæ Orange) (nazwa OrangeGo100))
-	(taryfa (sieæ Orange) (nazwa OrangeFree))
+	(taryfa (siec Orange) (nazwa OrangeOne))
+	(taryfa (siec Orange) (nazwa OrangePop))
+	(taryfa (siec Orange) (nazwa OrangeGo25))
+	(taryfa (siec Orange) (nazwa OrangeGo50))
+	(taryfa (siec Orange) (nazwa OrangeGo100))
+	(taryfa (siec Orange) (nazwa OrangeFree))
 )
 
 (deffacts platnosciOrange
@@ -68,73 +31,73 @@
 
 (deffacts cennikOrange
 	(cennik	(taryfa OrangeOne)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 29) (sms 15) (mms 20)
 	)
 	(cennik	(taryfa OrangeOne)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 63) (sms 15) (mms 20)
 	)
 	
 	
 	(cennik	(taryfa OrangePop)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 29) (sms 20) (mms 20)
 	)
 	(cennik	(taryfa OrangePop)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 75) (sms 20) (mms 20)
 	)
 	
 	
 	(cennik	(taryfa OrangeGo25)
-			(sieæ_docelowa stacjonarne orange)
+			(siec_docelowa stacjonarne orange)
 			(min 39) (sms 10) (mms 20)
 	)
 	(cennik	(taryfa OrangeGo25)
-			(sieæ_docelowa plus tmobile heyah)
+			(siec_docelowa plus tmobile heyah)
 			(min 49) (sms 18) (mms 20)
 	)
 	(cennik	(taryfa OrangeGo25)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 75) (sms 18) (mms 20)
 	)
 	
 	
 	(cennik	(taryfa OrangeGo50)
-			(sieæ_docelowa stacjonarne orange)
+			(siec_docelowa stacjonarne orange)
 			(min 29) (sms 5) (mms 10)
 	)
 	(cennik	(taryfa OrangeGo50)
-			(sieæ_docelowa plus tmobile heyah)
+			(siec_docelowa plus tmobile heyah)
 			(min 29) (sms 18) (mms 20)
 	)
 	(cennik	(taryfa OrangeGo50)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 75) (sms 18) (mms 20)
 	)
 	
 	
 	(cennik	(taryfa OrangeGo100)
-			(sieæ_docelowa stacjonarne orange)
+			(siec_docelowa stacjonarne orange)
 			(min 20) (sms 1) (mms 2)
 	)
 	(cennik	(taryfa OrangeGo100)
-			(sieæ_docelowa plus tmobile heyah)
+			(siec_docelowa plus tmobile heyah)
 			(min 29) (sms 18) (mms 20)
 	)
 	(cennik	(taryfa OrangeGo100)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 75) (sms 18) (mms 20)
 	)
 	
 	
 	(cennik	(taryfa OrangeFree)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 29) (sms 20) (mms 40)
 	)
 	(cennik	(taryfa OrangePop)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 75) (sms 20) (mms 40)
 	)
 )
@@ -149,7 +112,7 @@
 ;;;;;;;;;;;;; PLUS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 (deffacts taryfyPlus
-	(taryfa (sieæ Plus) (nazwa PlusNaKarte))
+	(taryfa (siec Plus) (nazwa PlusNaKarte))
 )
 
 (deffacts platnosciPlus
@@ -165,12 +128,12 @@
 
 (deffacts cennikPlus
 	(cennik	(taryfa PlusNaKarte)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 29) (sms 19) (mms 40)
 	)
 	
 	(cennik	(taryfa PlusNaKarte)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 73) (sms 19) (mms 40)
 	)
 )
@@ -182,8 +145,8 @@
 ;;;;;;;;;;;;; TMOBILE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 (deffacts taryfyTmobile
-	(taryfa (sieæ Tmobile) (nazwa TakTakHot))
-	(taryfa (sieæ Tmobile) (nazwa NowyTakTak))
+	(taryfa (siec Tmobile) (nazwa TakTakHot))
+	(taryfa (siec Tmobile) (nazwa NowyTakTak))
 )
 
 (deffacts platnosciTmobile
@@ -202,20 +165,20 @@
 
 (deffacts cennikTmobile
 	(cennik	(taryfa NowyTakTak)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 59) (sms 18) (mms 41)
 	)
 	(cennik	(taryfa NowyTakTak)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 80) (sms 18) (mms 41)
 	)
 	
 	(cennik	(taryfa TakTakHot)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 30) (sms 18) (mms 41)
 	)
 	(cennik	(taryfa TakTakHot)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 80) (sms 18) (mms 41)
 	)
 )
@@ -228,11 +191,11 @@
 ;;;;;;;;;;;;; PLAY ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 (deffacts taryfyPlay
-	(taryfa (sieæ Play) (nazwa PlayNaKarte))
-	(taryfa (sieæ Play) (nazwa LubieTo))
-	(taryfa (sieæ Play) (nazwa RokWaznosci))
-	(taryfa (sieæ Play) (nazwa PlayOnline))
-	(taryfa (sieæ Play) (nazwa RedBull))
+	(taryfa (siec Play) (nazwa PlayNaKarte))
+	(taryfa (siec Play) (nazwa LubieTo))
+	(taryfa (siec Play) (nazwa RokWaznosci))
+	(taryfa (siec Play) (nazwa PlayOnline))
+	(taryfa (siec Play) (nazwa RedBull))
 )
 
 (deffacts platnosciPlay
@@ -276,31 +239,31 @@
 
 (deffacts cennikPlay
 	(cennik	(taryfa PlayNaKarte)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 0) (sms 0) (mms 19)
 	)
 	(cennik	(taryfa PlayNaKarte)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 29) (sms 9) (mms 19)
 	)
 	
 	(cennik	(taryfa LubieTo)
-			(sieæ_docelowa stacjonarne orange plus tmobile play heyah)
+			(siec_docelowa stacjonarne orange plus tmobile play heyah)
 			(min 29) (sms 9) (mms 19)
 	)
 	
 	(cennik	(taryfa RokWaznosci)
-			(sieæ_docelowa stacjonarne orange plus tmobile play heyah)
+			(siec_docelowa stacjonarne orange plus tmobile play heyah)
 			(min 29) (sms 9) (mms 19)
 	)
 	
 	(cennik	(taryfa PlayOnline)
-			(sieæ_docelowa stacjonarne orange plus tmobile play heyah)
+			(siec_docelowa stacjonarne orange plus tmobile play heyah)
 			(min 29) (sms 9) (mms 19)
 	)
 	
 	(cennik	(taryfa RedBull)
-			(sieæ_docelowa stacjonarne orange plus tmobile play heyah)
+			(siec_docelowa stacjonarne orange plus tmobile play heyah)
 			(min 29) (sms 9) (mms 19)
 	)
 )
@@ -317,7 +280,7 @@
 ;;;;;;;;;;;;; HEYAH ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 (deffacts taryfyHeyah
-	(taryfa (sieæ Heyah) (nazwa NowaHeyah))
+	(taryfa (siec Heyah) (nazwa NowaHeyah))
 )
 
 (deffacts platnosciHeyah
@@ -330,12 +293,12 @@
 
 (deffacts cennikHeyah
 	(cennik	(taryfa NowaHeyah)
-			(sieæ_docelowa stacjonarne orange plus tmobile heyah)
+			(siec_docelowa stacjonarne orange plus tmobile heyah)
 			(min 30) (sms 0) (mms 41)
 	)
 	
 	(cennik	(taryfa NowaHeyah)
-			(sieæ_docelowa play)
+			(siec_docelowa play)
 			(min 80) (sms 14) (mms 41)
 	)
 )
