@@ -1,0 +1,267 @@
+; template wg ktorego przypisywane sa rozmowy
+
+(deftemplate (odpowiedz
+  (slot klucz (type SYMBOL))
+  (slot wartosc (type SYMBOL STRING NUMBER))
+)
+
+
+
+; preferowana siec
+(assert (odpowiedz  (klucz siec)  (wartosc Plus) ))
+(assert (odpowiedz  (klucz siec)  (wartosc Play) ))
+(assert (odpowiedz  (klucz siec)  (wartosc TMobile) ))
+(assert (odpowiedz  (klucz siec)  (wartosc Orange) ))
+(assert (odpowiedz  (klucz siec)  (wartosc dowolna) ))
+
+; max miesiecznych wydatkow
+(assert (odpowiedz  (klucz limit)  (wartosc 30) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 50) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 90) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 150) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 9999) ))
+
+; jaka czesc kontaktow stanowia ludzie w Twojej sieci?
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 1) ))
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 0.75) ))
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 0.5 ))
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 0.25) ))
+
+; co robi najczesciej
+(assert (odpowiedz (klucz duzo_rozmawia)  (wartosc tak) ))
+(assert (odpowiedz (klucz duzo_sms)  (wartosc tak) ))
+(assert (odpowiedz (klucz duzo_net)  (wartosc tak) ))
+
+; czy interesuja tansze rozmowy w sieciach swojej albo we wszystkich
+(assert (odpowiedz (klucz tansze_rozmowy) (wartosc tak) ))
+
+; zainteresowanie pakietami obnizajacymi smsy w sieciach swojej lub we wszystkich
+(assert (odpowiedz (klucz tansze_sms) (wartosc tak_wszyscy) ))
+(assert (odpowiedz (klucz tansze_sms) (wartosc tak_moja) ))
+
+; GB zuzytego transferu miesiecznie
+(assert (odpowiedz (klucz transfer) (wartosc 0.1) ))
+(assert (odpowiedz (klucz transfer) (wartosc 0.5) ))
+(assert (odpowiedz (klucz transfer) (wartosc 1) ))
+(assert (odpowiedz (klucz transfer) (wartosc 10) ))
+
+; czy ma wybrane osoby, z ktorymi rozmawia/smsuje najczesciej
+; ten fakt jest po to, zeby decydowac o dobieraniu pakietow z wybranymi numerami
+(assert (odpowiedz (klucz wybrane_osoby)  (wartosc jedna) ))
+(assert (odpowiedz (klucz wybrane_osoby)  (wartosc wiele) ))
+
+
+; jak czesto dzwoni (to sa wartosci ilosc rozmow / miesiac)
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 900) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 300) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 150) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 60) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 30) ))
+
+
+; ile smsuje na miesiac
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 3000) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 500) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 80) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 30) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 10) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 5) ))
+
+; jakie dlugie sa rozmowy
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 1) ))
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 5) ))
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 30) ))
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 60) ))
+
+
+
+;
+; reguly przeksztalcajace fakty odpowiedzi do faktow posrednich
+;
+
+
+; =================================================
+; reguly wrzucajace kryteria dotyczace wyboru sieci
+; =================================================
+
+(defrule szukaj-sieci
+  (odpowiedz (klucz siec) (wartosc ?i&~dowolna) )
+=>
+  (assert (siec ?i))
+)
+
+(defrule szukaj-orange
+  (odpowiedz (klucz siec) (wartosc dowolna) )
+=>
+  (assert (siec Orange))
+  (assert (siec Plus))
+  (assert (siec Play))
+  (assert (siec TMobile))
+)
+
+
+
+; =================================================
+; max wydatki
+; =================================================
+
+(defrule szukaj-max-wydatki
+  (odpowiedz (klucz limit) (wartosc ?i))
+=>
+  (assert (limit ?i))
+)
+
+; =================================================
+; wybrane numery
+; =================================================
+
+; jedna osoba
+  (defrule szukaj-wybrany-numer
+  (odpowiedz (klucz wybrane_osoby) (wartosc jedna))
+=>
+  (assert (pakiet-wybrana-osoba))
+)
+
+; wiele osób
+(defrule szukaj-wybrane-numery
+  (odpowiedz (klucz wybrane_osoby) (wartosc wiele))
+=>
+  (assert (pakiet-wybrane-osoby))
+)
+
+
+; =================================================
+; czy szukac pakietow do tanszych sms 
+; =================================================
+
+(defrule pakiety-sms-moja
+  (or
+    (odpowiedz (klucz tansze_sms) (wartosc tak_moja))
+    (odpowiedz (klucz duzo_sms)  (wartosc tak))
+  )
+=>
+  (assert (pakiet-sms-moja))
+)
+
+(defrule pakiety-sms-wszyscy
+  (odpowiedz (klucz tansze_sms) (wartosc tak_wszyscy))
+  (odpowiedz (klucz duzo_sms)  (wartosc tak))
+=>
+  (assert (pakiet-sms-wszyscy))
+  (assert (pakiet-sms-moja))
+)
+
+
+; =================================================
+; czy szukac pakietow do minut
+; =================================================
+; (pakiet-minuty-wszyscy)
+
+(defrule pakiety-minuty-wszyscy
+  (odpowiedz  (klucz ile_w_sieci) (wartosc ?w))
+  (test (< 0.4 ?w))
+  (odpowiedz (klucz tansze_rozmowy) (wartosc tak))
+  (odpowiedz (klucz duzo_rozmawia)  (wartosc tak))
+=>
+  (assert (pakiet-minuty-wszyscy))
+)
+
+(defrule pakiety-minuty-moja
+  (odpowiedz  (klucz ile_w_sieci) (wartosc ?w))
+  (test (> 0.4 ?w))
+  (odpowiedz (klucz tansze_rozmowy) (wartosc tak) )
+  (assert (odpowiedz (klucz duzo_rozmawia)  (wartosc tak) ))
+=>
+  (assert (pakiet-minuty-moja))
+)
+
+
+; =================================================
+; czy szukac pakietow do internetu
+; =================================================
+; (pakiet-net GB_TRANSFER)
+
+(defrule pakiety-net
+  (or 
+    (odpowiedz (klucz transfer) (wartosc ?transfer))
+    (odpowiedz (klucz duzo_net)  (wartosc tak))
+  )
+=>
+  (assert (pakiet-net ?transfer))
+)
+
+
+; =================================================
+; wylicz ilosc rozmow, smsow i transferu / miesiac
+; =================================================
+; (ile-transfer GB)
+; (ile-minut GB)
+; (ile-sms GB)
+
+;;;;;;;;;;;;;;;;;;;
+; transfer net
+;;;;;;;;;;;;;;;;;;;
+
+(defrule wylicz-transfer
+  (odpowiedz (klucz transfer) (wartosc ?transfer))
+=>
+  (assert (ile-transfer ?transfer))
+)
+
+(defrule wylicz-transfer-default
+  (not ((odpowiedz (klucz transfer) (wartosc ?)))
+=>
+  (assert (ile-transfer 0))
+)
+
+
+;;;;;;;;;;;;;;;;;;;
+; minuty
+;;;;;;;;;;;;;;;;;;;
+
+(defrule wylicz-rozmowy-w-swojej-sieci
+  (odpowiedz (klucz ile_w_sieci) (wartosc ?mnoznik))
+  (odpowiedz (klucz ile_rozmawia) (wartosc ?ile_razy_dzwoni))
+  (odpowiedz (klucz dlugosc_rozmow) (wartosc ?dlugosc_rozmowy))
+=>
+  (assert (minuty-w-sieci (* (* ?ile_razy_dzwoni ?dlugosc_rozmowy) ?mnoznik))
+)
+
+(defrule wylicz-rozmowy-poza-siecia
+  (odpowiedz  (klucz ile_w_sieci) (wartosc ?mnoznik))
+  (odpowiedz (klucz ile_rozmawia) (wartosc ?ile_razy_dzwoni))
+  (odpowiedz (klucz dlugosc_rozmow) (wartosc ?dlugosc_rozmowy))
+=>
+  (assert (minuty-poza siecia (* (* ?ile_razy_dzwoni ?dlugosc_rozmowy) (- 1.0 ?mnoznik)))
+)
+
+(defrule wylicz-rozmowy-do-wszystkich
+  (odpowiedz (klucz ile_rozmawia) (wartosc ?ile_razy_dzwoni))
+  (odpowiedz (klucz dlugosc_rozmow) (wartosc ?dlugosc_rozmowy))
+=>
+  (assert (minuty-wszystkie (* ?ile_razy_dzwoni ?dlugosc_rozmowy)))
+)
+
+;;;;;;;;;;;;;;;;;;;
+; smsy
+;;;;;;;;;;;;;;;;;;;
+
+(defrule wylicz-smsy-w-sieci
+  (odpowiedz (klucz ile_w_sieci) (wartosc ?mnoznik))
+  (odpowiedz (klucz ile_smsuje) (wartosc ?ile))
+=>
+  (assert (smsy-w-sieci (* ?mnoznik ?ile))
+)
+
+(defrule wylicz-smsy-poza
+  (odpowiedz (klucz ile_w_sieci) (wartosc ?mnoznik))
+  (odpowiedz (klucz ile_smsuje) (wartosc ?ile))
+=>
+  (assert (smsy-poza-siecia (* (- 1.0 ?mnoznik) ?ile))
+)
+
+(defrule wylicz-smsy-wszystkie
+  (odpowiedz (klucz ile_smsuje) (wartosc ?ile))
+=>
+  (assert (smsy-wszystkie ?ile))
+)

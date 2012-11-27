@@ -1,6 +1,16 @@
 NOTE: 1 i 2 pytanie pozwalają już na starcie przefiltrować taryfy!
 
 
+// schemat wg ktorego przypisywane sa rozmowy
+
+(deftemplate (odpowiedz
+  (slot klucz (type SYMBOL))
+  (slot wartosc (type SYMBOL STRING NUMBER))
+)
+
+
+
+
 Wybierz preferowaną sieć:
   - dowolna
   - Plus
@@ -8,13 +18,38 @@ Wybierz preferowaną sieć:
   - T-Mobile
   - Orange
 
+(assert (odpowiedz  (klucz siec)  (wartosc Plus) ))
+(assert (odpowiedz  (klucz siec)  (wartosc Play) ))
+(assert (odpowiedz  (klucz siec)  (wartosc TMobile) ))
+(assert (odpowiedz  (klucz siec)  (wartosc Orange) ))
+
 ===========================================
 
 Maksymalne miesięczne wydatki
   - 30
   - 50
-  - 80
+  - 90
+  - 150
   - 9999 (bez limitu :D)
+
+(assert (odpowiedz  (klucz limit)  (wartosc 30) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 50) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 90) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 150) ))
+(assert (odpowiedz  (klucz limit)  (wartosc 9999) ))
+
+===========================================
+
+Jaką część kontaktow stanowia ludzie w Twojej sieci?
+  - komunikuje sie tylko z ludzmi w swojej sieci
+  - około 3/4
+  - połowa
+  - ciężko powiedzieć / mam kontakty z różnych sieci
+
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 1) ))
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 0.75) ))
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 0.5 ))
+(assert (odpowiedz  (klucz ile_w_sieci) (wartosc 0.25) ))
 
 ===========================================
 
@@ -25,6 +60,10 @@ Co robisz najczęściej?
   - dzwonię i smsuję
   - wszystko
 
+(assert (odpowiedz (klucz duzo_rozmawia)  (wartosc tak) ))
+(assert (odpowiedz (klucz duzo_sms)  (wartosc tak) ))
+(assert (odpowiedz (klucz duzo_net)  (wartosc tak) ))
+
 ===========================================
 
 Czy interesują Cię pakiety obniżające koszty rozmowy?
@@ -32,12 +71,18 @@ Czy interesują Cię pakiety obniżające koszty rozmowy?
   - tak, do mojej sieci
   - nie interesują mnie
 
+(assert (odpowiedz (klucz tansze_rozmowy) (wartosc tak_wszyscy) ))
+(assert (odpowiedz (klucz tansze_rozmowy) (wartosc tak_moja) ))
+
 ===========================================
 
-Czy interesują Cię pakietu obniżające koszty smsów?
+Czy interesują Cię pakiety obniżające koszty smsów?
   - tak, do wszystkich sieci
   - tak, do mojej sieci
   - nie interesują mnie
+
+(assert (odpowiedz (klucz tansze_sms) (wartosc tak_wszyscy) ))
+(assert (odpowiedz (klucz tansze_sms) (wartosc tak_moja) ))
 
 ===========================================
 
@@ -48,12 +93,22 @@ Ile transferu zużywasz miesięcznie w ramach internetu mobilnego?
   - powyżej 1GB
   - nie interesuje mnie internet
 
+(assert (odpowiedz (klucz transfer) (wartosc 0.1) ))
+(assert (odpowiedz (klucz transfer) (wartosc 0.5) ))
+(assert (odpowiedz (klucz transfer) (wartosc 1) ))
+(assert (odpowiedz (klucz transfer) (wartosc 10) ))
+
+// uwazam, ze 10 GB to duzo i na mobilnym to jak nieskonczonosc :)
+
 ===========================================
 
 Czy masz wybrane osoby z którymi przeprowadzasz większość rozmów / do których wysyłasz większość smsów?
   - tak, jedną
   - tak, 1 do 3 osób
   - rozmawiam z różnymi osobami / nie potrafię wskazać osób z którymi rozmawiam najczęściej
+
+(assert (odpowiedz (klucz wybrane_osoby)  (wartosc jedna) ))
+(assert (odpowiedz (klucz wybrane_osoby)  (wartosc kilka) ))
 
 ===========================================
 
@@ -64,14 +119,50 @@ Jak często rozmawiasz?
   - kilka razy w tygodniu
   - sporadycznie
 
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc bardzo_czesto) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc czesto) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc codziennie) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc czasami) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc rzadko) ))
+
+
+// tutaj warto przypisac jakies subiektywne wartosci dla konkretnych wartosci (najlepiej w minutach)
+// ponizej podano przykladowe (srednio minut na dzien):
+
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 240) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 60) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 20) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 5) ))
+(assert (odpowiedz (klucz ile_rozmawia) (wartosc 1) ))
+
+
 ===========================================
 
 Jak często wysyłasz sms?
   - całymi dniami
+  - kilkanaście razy dziennie
   - kilka razy dziennie
   - raz dziennie
   - kilka razy w tygodniu
   - sporadycznie
+
+(assert (odpowiedz (klucz ile_smsuje) (wartosc bardzo_czesto) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc czesto) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc codziennie) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc czasami) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc rzadko) ))
+
+
+// tutaj podobnie, przypisujemy subiektywne wartosci, zatem:
+// (ilosc sms / miesiac)
+
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 3000) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 500) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 80) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 30) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 10) ))
+(assert (odpowiedz (klucz ile_smsuje) (wartosc 5) ))
+
 
 ===========================================
 
@@ -80,3 +171,8 @@ Ile trwają Twoje rozmowy?
   - kilka minut
   - do 30 minut
   - powyżej 30 minut
+
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 1) ))
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 5) ))
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 30) ))
+(assert (odpowiedz (klucz dlugosc_rozmow) (wartosc 60) ))
