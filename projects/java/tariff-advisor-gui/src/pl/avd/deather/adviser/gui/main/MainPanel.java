@@ -15,14 +15,12 @@ public class MainPanel {
 
   private JButton prevButton;
   private JButton nextButton;
-  private JSlider progressSlider;
-  private JTextField progressText;
-  private JPanel questionPanel;
+    private JPanel questionPanel;
   private JPanel mainPanel;
 
   public MainPanel() {
-    mainPanel.setPreferredSize(new Dimension(420, 600));
-    questionPanel.setPreferredSize(new Dimension(400, 500));
+    mainPanel.setPreferredSize(new Dimension(620, 600));
+    questionPanel.setPreferredSize(new Dimension(590, 500));
   }
 
   public void setQuestionPanelContent(Component component) {
@@ -55,10 +53,9 @@ public class MainPanel {
   }
 
   public void setProgress(int max, int cur) {
-    progressSlider.setMaximum(max);
-    progressSlider.setMinimum(1);
-    progressSlider.setValue(cur);
-    progressText.setText(cur + " z " + max);
-
+//    progressSlider.setMaximum(max);
+//    progressSlider.setMinimum(1);
+//    progressSlider.setValue(cur);
+//    progressText.setText(cur + " z " + max);
   }
 }
