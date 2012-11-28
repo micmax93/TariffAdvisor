@@ -16,15 +16,16 @@
 	(doladowania	(taryfa OrangeOne)	(cena 100)	(waznosc 100) (bonus 10))
 	(doladowania	(taryfa OrangeOne)	(cena 200)	(waznosc 100) (bonus 30))
 	
-	(doladowania	(taryfa OrangePop OrangeGo25 Orange Free)	(cena 25)	(waznosc 30)	)
-	(doladowania	(taryfa OrangePop OrangeGo25 Orange Free)	(cena 40)	(waznosc 40)	)
-	(doladowania	(taryfa OrangePop OrangeGo50 Orange Free)	(cena 50)	(waznosc 90)	)
-	(doladowania	(taryfa OrangePop OrangeGo100 Orange Free)	(cena 100)	(waznosc 150)	(bonus 10)	)
+	(doladowania	(taryfa OrangePop OrangeGo25 OrangeFree)	(cena 25)	(waznosc 30)	)
+	(doladowania	(taryfa OrangePop OrangeGo25 OrangeFree)	(cena 40)	(waznosc 40)	)
+	(doladowania	(taryfa OrangePop OrangeGo50 OrangeFree)	(cena 50)	(waznosc 90)	)
+	(doladowania	(taryfa OrangePop OrangeGo100 OrangeFree)	(cena 100)	(waznosc 150)	(bonus 10)	)
 	(doladowania	(taryfa OrangePop OrangeGo100)	(cena 200)	(waznosc 300)	(bonus 30)	)
 )
 
 (deffacts bonusOrangeFree
 	(bonus	(taryfa OrangeFree)	(cena 25)	(net 1.01)	)
+	(bonus	(taryfa OrangeFree)	(cena 40)	(net 1.01)	)
 	(bonus	(taryfa OrangeFree)	(cena 50)	(net 2.27)	)
 	(bonus	(taryfa OrangeFree)	(cena 100)	(net 6)	)
 )
@@ -281,13 +282,14 @@
 ;
 (deffacts taryfyHeyah
 	(taryfa (siec Heyah) (nazwa NowaHeyah))
+	(taryfa (siec Heyah) (nazwa NowaHeyah30))
 )
 
 (deffacts platnosciHeyah
 	(doladowania	(taryfa NowaHeyah)	(cena 20)	(waznosc 30)	)
-	(doladowania	(taryfa NowaHeyah)	(cena 50)	(waznosc 90)	)
-	(doladowania	(taryfa NowaHeyah)	(cena 100)	(waznosc 120)	)
-	(doladowania	(taryfa NowaHeyah)	(cena 150)	(waznosc 180)	)
+	(doladowania	(taryfa NowaHeyah30)	(cena 50)	(waznosc 90)	)
+	(doladowania	(taryfa NowaHeyah30)	(cena 100)	(waznosc 120)	)
+	(doladowania	(taryfa NowaHeyah30)	(cena 150)	(waznosc 180)	)
 )
 
 
@@ -301,8 +303,25 @@
 			(siec_docelowa play)
 			(min 80) (sms 14) (mms 41)
 	)
+	
+	
+	(cennik	(taryfa NowaHeyah30)
+			(siec_docelowa heyah)
+			(min 0) (sms 0) (mms 41)
+	)
+	
+	(cennik	(taryfa NowaHeyah30)
+			(siec_docelowa stacjonarne orange plus tmobile)
+			(min 30) (sms 0) (mms 41)
+	)
+	
+	(cennik	(taryfa NowaHeyah30)
+			(siec_docelowa play)
+			(min 80) (sms 14) (mms 41)
+	)
 )
 
 (deffacts transferHeyah
 	(transfer	(taryfa NowaHeyah)	(cena 2)	)
+	(transfer	(taryfa NowaHeyah30)	(cena 2)	)
 )
