@@ -1,20 +1,22 @@
 package pl.avd.deather.adviser.logic;
 
+import CLIPSJNI.Environment;
+import CLIPSJNI.MultifieldValue;
 import pl.avd.deather.adviser.gui.main.MainPanel;
 import pl.avd.deather.adviser.gui.question.QuestionPanel;
 import pl.avd.deather.adviser.logic.question.Question;
+import pl.avd.deather.adviser.logic.question.QuestionBundle;
 
 import javax.swing.*;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Application {
-
-  private int current = 0;
-  private List<Question> questions;
-  private List<QuestionPanel> questionPanels;
+  private Question question = null;
+  private String nextQuestionKey = null;
+  private QuestionPanel questionPanel = null;
   private MainPanel mainPanel;
-  private JFrame frame;
+  private Environment clips;
 
   public static void main(String[] args) {
     SwingUtilities.invokeLater(new Runnable() {
@@ -27,44 +29,102 @@ public class Application {
 
   public Application() {
     mainPanel = new MainPanel();
-    questions = generateQuestions();
-    questionPanels = generateQuestionPanels(questions);
+
     setupMainFrame();
-    setupProgress();
     setupHandlers();
-    updateCurrentFrame();
+    setupClips();
+
+    next();
   }
 
-  private void setupProgress() {
+  private void setupClips() {
+    String fileLocation = getClass().getResource("/ui-clips.clp").getPath();
+    System.out.println(fileLocation);
+    System.out.println("Setting up clips.");
 
+    clips = new Environment();
+    clips.clear();
+
+    clips.load(fileLocation);
+    clips.reset();
   }
 
   private void setupHandlers() {
     mainPanel.addNextButtonHandler(new MainPanel.NextButtonHandler() {
       @Override
       public void onClick() {
-        current++;
-        if (current >= questions.size()) {
-          current = 0;
-        }
-        updateCurrentFrame();
+        sendCurrentValue();
+        next();
       }
     });
 
     mainPanel.addPrevButtonHandler(new MainPanel.PrevButtonHandler() {
       @Override
       public void onClick() {
-        current--;
-        if (current < 0) {
-          current = questions.size() - 1;
-        }
+        System.out.println("Cofanie jest zabronione.");
+        beforeUpdate();
+        prev();
         updateCurrentFrame();
       }
     });
   }
 
+  private void sendCurrentValue() {
+    String assertString = question.toClipsFact();
+    clips.assertString(assertString);
+  }
+
+  private void prev() {
+  }
+
+  private void next() {
+    // tries to get next question, if it fails tries to get results
+    clips.run(1);
+    if (!nextQuestion()) {
+      beforeUpdate();
+      results();
+    }
+  }
+
+  private void results() {
+    System.out.println("No more questions. Showing results.");
+  }
+
+  private boolean nextQuestion() {
+    try {
+      MultifieldValue v = (MultifieldValue) clips.eval("(find-all-facts ((?i ui-state)) TRUE)");
+      String key = v.get(0).getFactSlot("key").toString();
+
+      if (key.equals("question")) {
+        String value = v.get(0).getFactSlot("value").toString();
+        nextQuestionKey = value;
+        System.out.println(nextQuestionKey);
+      }
+
+      setQuestion(QuestionBundle.valueOf(nextQuestionKey));
+      updateCurrentFrame();
+      return true;
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
+  private void setQuestion(QuestionBundle bundle) {
+    this.question = bundle.getQuestion();
+    this.questionPanel = generateQuestionPanel(question);
+  }
+
+  private void beforeUpdate() {
+    if (question != null) {
+      question.setValue(questionPanel.getSelectedIndex());
+      Object valueKey = question.getKey();
+      //System.out.println("Selected: " + valueKey);
+      questionPanel.getMainPanel().setVisible(false);
+    }
+  }
+
   private void setupMainFrame() {
-    frame = new JFrame("Tariff Adviser");
+    JFrame frame = new JFrame("Tariff Adviser");
     frame.add(mainPanel.getMainPanel());
     frame.pack();
     frame.setVisible(true);
@@ -72,13 +132,13 @@ public class Application {
   }
 
   private void updateCurrentFrame() {
-    mainPanel.setProgress(questions.size(), current+1);
-    mainPanel.setQuestionPanelContent(questionPanels.get(current).getMainPanel());
+//    mainPanel.setProgress(questions.size(), current + 1);
+    mainPanel.setQuestionPanelContent(questionPanel.getMainPanel());
     mainPanel.getMainPanel().revalidate();
 
     // force refresh
-    questionPanels.get(current).getMainPanel().setVisible(false);
-    questionPanels.get(current).getMainPanel().setVisible(true);
+    questionPanel.getMainPanel().setVisible(false);
+    questionPanel.getMainPanel().setVisible(true);
   }
 
   private List<QuestionPanel> generateQuestionPanels(List<Question> questions) {
@@ -92,31 +152,8 @@ public class Application {
   private QuestionPanel generateQuestionPanel(Question q) {
     QuestionPanel questionPanel = new QuestionPanel();
     questionPanel.setQuestions(q.getQuestion(), q.getValues());
+    questionPanel.getMainPanel().setVisible(false);
     return questionPanel;
-  }
-
-  private List<Question> generateQuestions() {
-    List<Question> q = new LinkedList<Question>();
-
-    q.add(new Question("Ala ma kota?", new String[]{
-        "tak",
-        "nie",
-        "nie wiem"
-    }));
-
-    q.add(new Question("A my ile mamy nóg?", new String[]{
-        "No?",
-        "No ile mamy nóg?",
-        "Nie słyszałem..."
-    }));
-
-    q.add(new Question("Ile nóg ma padalec?", new String[]{
-        "3 razy 6 czyli 18",
-        "21",
-        "Aj tak, tak."
-    }));
-
-    return q;
   }
 
 }
