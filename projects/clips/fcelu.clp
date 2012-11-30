@@ -1687,21 +1687,24 @@
 	(retract ?i1)
 )
 
+(deftemplate fcelu
+	(slot wart (type NUMBER))
+)
 (defrule init-fcelu
 	(ui-state (key init-calc) (value true))
-	(not (fcelu ?))
+	(not (fcelu (wart ?)))
 	(zestaw
 		(cena ?c)
 		(srodki ?s)
 	)
 	(test (> ?s 0))
 	=>
-	(assert (fcelu ?c))
+	(assert (fcelu (wart ?c)))
 )
 
 (defrule do-fcelu
 	(ui-state (key init-calc) (value true))
-	?i1<-(fcelu ?f)
+	?i1<-(fcelu (wart ?f))
 	(zestaw
 		(cena ?c)
 		(srodki ?s)
@@ -1710,12 +1713,12 @@
 	(test (< ?c ?f))
 	=>
 	(retract ?i1)
-	(assert (fcelu ?c))
+	(assert (fcelu (wart ?c)))
 )
 
 (defrule reset-fcelu
 	(ui-state (key init-calc) (value true))
-	?i1<-(fcelu ?f)
+	?i1<-(fcelu (wart ?f))
 	(not (zestaw
 		(cena ?f)
 		(taryfa ?)
@@ -1728,15 +1731,6 @@
 	))
 	=>
 	(retract ?i1)
-)
-
-(defrule pytanie
-	(ui-state (key init-calc) (value true))
-	?i1<-(odp)
-	(fcelu ?f)
-	=>
-	(retract ?i1)
-	(assert (odp ?f))
 )
 
 
