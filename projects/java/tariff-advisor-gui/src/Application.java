@@ -35,6 +35,9 @@ public class Application {
   private void setupClips() {
     String fileLocations[] = new String[]{
         getClass().getResource("/ui-templates.clp").getPath(),
+        getClass().getResource("/fcelu.clp").getPath(),
+        getClass().getResource("/pakiety.clp").getPath(),
+        getClass().getResource("/taryfy.clp").getPath(),
         getClass().getResource("/ui-clips.clp").getPath(),
         getClass().getResource("/ans2f.clp").getPath(),
     };
