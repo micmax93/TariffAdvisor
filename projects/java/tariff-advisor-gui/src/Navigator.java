@@ -1,5 +1,3 @@
-package pl.avd.deather.adviser.logic.question;
-
 import java.util.Iterator;
 import java.util.List;
 

@@ -1,5 +1,3 @@
-package pl.avd.deather.adviser.gui.main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,14 +11,39 @@ public class MainPanel {
     public void onClick();
   }
 
-  private JButton prevButton;
+  private JButton resetButton;
   private JButton nextButton;
-    private JPanel questionPanel;
+  private JPanel questionPanel;
   private JPanel mainPanel;
 
   public MainPanel() {
+    initGui();
     mainPanel.setPreferredSize(new Dimension(620, 600));
     questionPanel.setPreferredSize(new Dimension(590, 500));
+  }
+
+  private void initGui() {
+    mainPanel = new JPanel(new BorderLayout());
+    questionPanel = new JPanel(new BorderLayout());
+    JPanel navPanel = new JPanel(new BorderLayout(5, 5));
+
+    mainPanel.add(questionPanel, BorderLayout.NORTH);
+    mainPanel.add(navPanel, BorderLayout.SOUTH);
+
+    resetButton = new JButton("Reset");
+    nextButton = new JButton("Dalej");
+
+    JPanel flowPanel1 = new JPanel(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+    JPanel flowPanel2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
+
+    flowPanel1.setPreferredSize(new Dimension(310, 80));
+    flowPanel2.setPreferredSize(new Dimension(310, 80));
+
+    navPanel.add(flowPanel1, BorderLayout.WEST);
+    navPanel.add(flowPanel2, BorderLayout.EAST);
+
+    flowPanel1.add(resetButton);
+    flowPanel2.add(nextButton);
   }
 
   public void setQuestionPanelContent(Component component) {
@@ -44,7 +67,7 @@ public class MainPanel {
   }
 
   public void addPrevButtonHandler(final PrevButtonHandler handler) {
-    prevButton.addActionListener(new AbstractAction() {
+    resetButton.addActionListener(new AbstractAction() {
       @Override
       public void actionPerformed(ActionEvent e) {
         handler.onClick();
