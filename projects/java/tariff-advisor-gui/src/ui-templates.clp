@@ -1,3 +1,7 @@
+(deftemplate fcelu
+	(slot wart (type NUMBER))
+)
+
 (deftemplate ui-state
     (slot key (type SYMBOL))
     (slot value (type SYMBOL))
@@ -15,7 +19,6 @@
     (slot mms (type NUMBER))
     (slot net (type NUMBER))
 )
-
 (deftemplate taryfa
 	(slot	nazwa	(type SYMBOL)	)
 	(slot	siec	(type SYMBOL)	)
@@ -109,6 +112,9 @@
 )
 
 
+
+
+
 (deftemplate zestaw
 	(slot	taryfa	(type SYMBOL))
 	(multislot pakiety (type SYMBOL))
@@ -132,5 +138,3 @@
 	(slot	min	(type NUMBER)	(default 0)	)
 	(slot	net	(type NUMBER)	(default 0)	)
 )
-
-

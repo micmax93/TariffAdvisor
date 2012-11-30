@@ -135,7 +135,20 @@ public enum QuestionBundle {
           "Kilkanaście",
           "Kilkadziesiąt",
           "Około stu",
-      })),;
+      })),
+  MMSCOUNT(new Question("Ile średnio wysyłasz MMS dziennie?",
+      "MdMSCOUNT",
+      new Object[]{
+          1, 5, 15, 50, 100
+      },
+      new String[]{
+          "Prawie wcale",
+          "Kilka (około 5)",
+          "Kilkanaście",
+          "Kilkadziesiąt",
+          "Około stu",
+      })),
+  ;
   private Question question;
 
   private QuestionBundle(Question question) {

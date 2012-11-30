@@ -108,13 +108,11 @@ public class Application {
 
     try {
       PrimitiveValue p = clips.eval("(find-all-facts ((?i fcelu)) TRUE)");
-      System.out.println(p.get(0).getClass());
+      String fcelu = p.get(0).getFactSlot("wart").toString();
+      System.out.println("Fcelu = " + fcelu);
 
-
-
-
-      MultifieldValue v = (MultifieldValue) clips.eval("(find-all-facts ((?i zestaw)) TRUE)");
-      System.out.println("Found: " + v.size() + " results.");
+      MultifieldValue v = (MultifieldValue) clips.eval("(find-all-facts ((?i zestaw)) (eq ?i:cena " + fcelu + "))");
+      System.out.println("Znaleziono: " + v.size() + " resultatow.");
 
       for (int i = 0; i < v.size(); i++) {
         String taryfa = v.get(i).getFactSlot("taryfa").toString();

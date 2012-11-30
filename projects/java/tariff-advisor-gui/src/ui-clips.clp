@@ -170,9 +170,18 @@
 )
 
 ; dlugosc rozmow
-(defrule question-rule-global-2
+(defrule question-rule-global-x
     (answer (key CALLLENGTH) (value ?))
     ?i <- (ui-state (key question) (value CALLLENGTH))
+=>
+    (retract ?i)
+    (assert (ui-state (key question) (value MMSCOUNT)))
+)
+
+; dlugosc rozmow
+(defrule question-rule-global-2
+    (answer (key MMSCOUNT) (value ?))
+    ?i <- (ui-state (key question) (value MMSCOUNT))
 =>
     (retract ?i)
     (assert (ui-state (key question) (value SMSCOUNT)))
@@ -186,6 +195,8 @@
     (retract ?i)
     (assert (ui-state (key init-calc) (value true)))
 )
+
+
 
 ; ==========================================================
 ; END GENERAL QUESTIONS
