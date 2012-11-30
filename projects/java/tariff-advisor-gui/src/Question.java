@@ -1,5 +1,3 @@
-package pl.avd.deather.adviser.logic.question;
-
 public class Question {
   private String question;
   private Object[] keys;

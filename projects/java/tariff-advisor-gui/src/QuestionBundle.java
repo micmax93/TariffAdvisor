@@ -1,5 +1,3 @@
-package pl.avd.deather.adviser.logic.question;
-
 public enum QuestionBundle {
 
   NETWORK(new Question("Jaka preferujesz siec?",

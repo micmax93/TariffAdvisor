@@ -1,5 +1,3 @@
-package pl.avd.deather.adviser.gui.main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

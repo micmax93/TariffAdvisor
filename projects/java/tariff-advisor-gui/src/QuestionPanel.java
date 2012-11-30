@@ -1,5 +1,3 @@
-package pl.avd.deather.adviser.gui.question;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;

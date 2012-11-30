@@ -1,11 +1,5 @@
-package pl.avd.deather.adviser.logic;
-
 import CLIPSJNI.Environment;
 import CLIPSJNI.MultifieldValue;
-import pl.avd.deather.adviser.gui.main.MainPanel;
-import pl.avd.deather.adviser.gui.question.QuestionPanel;
-import pl.avd.deather.adviser.logic.question.Question;
-import pl.avd.deather.adviser.logic.question.QuestionBundle;
 
 import javax.swing.*;
 import java.util.LinkedList;
