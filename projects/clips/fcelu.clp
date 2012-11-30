@@ -125,13 +125,17 @@
 (defrule init-zestaw
 	(taryfa
 		(nazwa ?t)
+		(siec ?siec)
 	)
+	(answer (key NETWORK) (value ?siec))
 	(doladowania
 		(taryfa $? ?t $?)
 		(cena ?c)
 		(bonus ?b)
 		(waznosc ?w)
 	)
+	(answer (key MAXCOST) (value ?cmax))
+	(test (<= ?c ?cmax))
 	=>
 	(assert
 		(zestaw
@@ -215,6 +219,7 @@
 
 ; Dodawanie pakietow do zestawow
 (defrule dodaj-pakietMin
+	(answer (key CALLPACKETS) (value true))
 	(zestaw
 		(taryfa ?t)
 		(pakiety)
@@ -249,6 +254,7 @@
 
 
 (defrule dodaj-pakietSms
+	(answer (key SMSPACKETS) (value true))
 	(zestaw
 		(taryfa ?t)
 		(pakiety)
@@ -317,6 +323,7 @@
 
 
 (defrule dodaj-pakietNet
+	(answer (key CALLPACKETS) (value true))
 	(zestaw
 		(taryfa ?t)
 		(pakiety)
@@ -1033,6 +1040,7 @@
 )
 ;Reguly do operacji w sieci
 (defrule wykonajMinWsieciP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1078,6 +1086,7 @@
 )
 
 (defrule wykonajMinWsieciD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1123,6 +1132,7 @@
 )
 
 (defrule wykonajSmsWsieciP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1168,6 +1178,7 @@
 )
 
 (defrule wykonajSmsWsieciD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1213,6 +1224,7 @@
 )
 
 (defrule wykonajMmsWsieciP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1258,6 +1270,7 @@
 )
 
 (defrule wykonajMmsWsieciD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1306,6 +1319,7 @@
 
 ;Reguly do operacji poza siecia
 (defrule wykonajMinPozaP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1351,6 +1365,7 @@
 )
 
 (defrule wykonajMinPozaD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1396,6 +1411,7 @@
 )
 
 (defrule wykonajSmsPozaP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1441,6 +1457,7 @@
 )
 
 (defrule wykonajSmsPozaD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1486,6 +1503,7 @@
 )
 
 (defrule wykonajMmsPozaP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1531,6 +1549,7 @@
 )
 
 (defrule wykonajMmsPozaD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1579,6 +1598,7 @@
 
 ;Reguly do wykorzystania lacza
 (defrule wykonajNetP
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1617,6 +1637,7 @@
 )
 
 (defrule wykonajNetD
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(taryfa ?t)
 		(pakiety $?p)
@@ -1657,6 +1678,7 @@
 
 ;fcelu
 (defrule usun-slabe
+	(ui-state (key init-calc) (value true))
 	?i1<-(zestaw
 		(srodki ?s)
 	)
@@ -1666,6 +1688,7 @@
 )
 
 (defrule init-fcelu
+	(ui-state (key init-calc) (value true))
 	(not (fcelu ?))
 	(zestaw
 		(cena ?c)
@@ -1677,6 +1700,7 @@
 )
 
 (defrule do-fcelu
+	(ui-state (key init-calc) (value true))
 	?i1<-(fcelu ?f)
 	(zestaw
 		(cena ?c)
@@ -1690,6 +1714,7 @@
 )
 
 (defrule reset-fcelu
+	(ui-state (key init-calc) (value true))
 	?i1<-(fcelu ?f)
 	(not (zestaw
 		(cena ?f)
@@ -1706,10 +1731,14 @@
 )
 
 (defrule pytanie
+	(ui-state (key init-calc) (value true))
 	?i1<-(odp)
 	(fcelu ?f)
 	=>
 	(retract ?i1)
 	(assert (odp ?f))
 )
+
+
+
 
