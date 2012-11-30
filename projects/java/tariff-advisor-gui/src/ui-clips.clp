@@ -1,14 +1,3 @@
-(deftemplate ui-state
-    (slot key (type SYMBOL))
-    (slot value (type SYMBOL))
-)
-
-(deftemplate answer
-    (slot key (type SYMBOL))
-    (slot value (type SYMBOL NUMBER))
-)
-
-
 ; starting question
 (deffacts start-ui-state
     (ui-state (key question) (value NETWORK))

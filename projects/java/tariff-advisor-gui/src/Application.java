@@ -33,14 +33,21 @@ public class Application {
   }
 
   private void setupClips() {
-    String fileLocation = getClass().getResource("/ui-clips.clp").getPath();
-//    System.out.println(fileLocation);
-    System.out.println("Setting up clips.");
+    String fileLocations[] = new String[]{
+        getClass().getResource("/ui-templates.clp").getPath(),
+        getClass().getResource("/fcelu.clp").getPath(),
+        getClass().getResource("/pakiety.clp").getPath(),
+        getClass().getResource("/taryfy.clp").getPath(),
+        getClass().getResource("/ui-clips.clp").getPath(),
+        getClass().getResource("/ans2f.clp").getPath(),
+    };
 
     clips = new Environment();
     clips.clear();
+    for (String f : fileLocations) {
+      clips.load(f);
+    }
 
-    clips.load(fileLocation);
     clips.reset();
   }
 
