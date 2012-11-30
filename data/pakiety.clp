@@ -243,14 +243,14 @@
 		(taryfa OrangePop OrangeOne OrangeGo25 OrangeGo50 OrangeGo100)
 		(cena 10)
 		(typ darmowe)
-		(net 100)
+		(net 0.1)
 	)
 	(pakietNet
 		(nazwa InternetowyXXL)
 		(taryfa OrangePop OrangeOne OrangeGo25 OrangeGo50 OrangeGo100)
 		(cena 15)
 		(typ darmowe)
-		(net 500)
+		(net 0.5)
 	)
 	
 	(pakietNet
@@ -258,7 +258,7 @@
 		(taryfa OrangeFree)
 		(cena 5)
 		(typ darmowe)
-		(net 200)
+		(net 0.2)
 	)
 		
 	(pakietNet
@@ -266,7 +266,7 @@
 		(taryfa OrangeFree)
 		(cena 10)
 		(typ darmowe)
-		(net 600)
+		(net 0.6)
 	)
 		
 	(pakietNet
@@ -274,7 +274,7 @@
 		(taryfa OrangeFree)
 		(cena 20)
 		(typ darmowe)
-		(net 1000)
+		(net 1)
 	)
 	
 )
@@ -326,28 +326,28 @@
 		(siec Tmobile)
 		(cena 9)
 		(typ darmowe)
-		(net 100)
+		(net 0.1)
 	)
 	(pakietNet
 		(nazwa Pakiet350MB)
 		(siec Tmobile)
 		(cena 12)
 		(typ darmowe)
-		(net 350)
+		(net 0.35)
 	)
 	(pakietNet
 		(nazwa Pakiet600MB)
 		(siec Tmobile)
 		(cena 16)
 		(typ darmowe)
-		(net 600)
+		(net 0.6)
 	)
 	(pakietNet
 		(nazwa Pakiet1200MB)
 		(siec Tmobile)
 		(cena 29)
 		(typ darmowe)
-		(net 1200)
+		(net 1.2)
 	)	
 )
 
@@ -359,21 +359,21 @@
 		(siec Heyah)
 		(cena 9)
 		(typ darmowe)
-		(net 100)
+		(net 0.1)
 	)
 	(pakietNet
 		(nazwa InternetNonStopL)
 		(siec Heyah)
 		(cena 15)
 		(typ darmowe)
-		(net 600)
+		(net 0.6)
 	)
 	(pakietNet
 		(nazwa InternetNonStopXL)
 		(siec Heyah)
 		(cena 25)
 		(typ darmowe)
-		(net 1200)
+		(net 1.2)
 	)
 	
 	

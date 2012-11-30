@@ -106,7 +106,9 @@
 (deffacts transferOrange
 	(transfer	(taryfa OrangeOne)	(cena 50)	)
 	(transfer	(taryfa OrangePop)	(cena 50)	)
-	(transfer	(taryfa OrangeGo)	(cena 50)	)
+	(transfer	(taryfa OrangeGo25)	(cena 50)	)
+	(transfer	(taryfa OrangeGo50)	(cena 50)	)
+	(transfer	(taryfa OrangeGo100)	(cena 50)	)
 	(transfer	(taryfa OrangeFree)	(cena 1)	)
 )
 
