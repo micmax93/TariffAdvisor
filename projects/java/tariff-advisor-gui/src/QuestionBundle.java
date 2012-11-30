@@ -3,7 +3,7 @@ public enum QuestionBundle {
   NETWORK(new Question("Jaka preferujesz siec?",
       "NETWORK",
       new String[]{
-          "orange", "plus", "tmobile", "play", "heyah"
+          "Orange", "Plus", "Tmobile", "Play", "Heyah"
       },
       new String[]{
           "Orange", "Plus", "T-Mobile", "Play", "Heyah"
