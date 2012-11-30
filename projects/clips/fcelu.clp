@@ -135,6 +135,8 @@
 		(bonus ?b)
 		(waznosc ?w)
 	)
+	(answer (key MAXCOST) (value ?cmax))
+	(test (<= ?c ?cmax))
 	=>
 	(assert
 		(zestaw
