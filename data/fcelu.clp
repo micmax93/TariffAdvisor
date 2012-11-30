@@ -99,6 +99,10 @@
 	(multislot pakiety (type SYMBOL))
 	(slot	cena	(type NUMBER))
 	(slot	srodki	(type NUMBER))
+	(multislot wykMin (type SYMBOL))
+	(multislot wykSms (type SYMBOL))
+	(multislot wykMms (type SYMBOL))
+	(multislot wykNet (type SYMBOL))
 )
 
 (deftemplate darmowe
@@ -144,6 +148,10 @@
 		(taryfa ?t)
 		(pakiety)
 		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(not
 		(bonus
@@ -173,6 +181,10 @@
 		(taryfa ?t)
 		(pakiety)
 		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(bonus
 		(taryfa ?t)
@@ -208,6 +220,10 @@
 		(pakiety)
 		(cena ?c)
 		(srodki ?s)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(taryfa
 		(nazwa ?t)
@@ -238,6 +254,10 @@
 		(pakiety)
 		(cena ?c)
 		(srodki ?s)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(taryfa
 		(nazwa ?t)
@@ -268,6 +288,10 @@
 		(pakiety)
 		(cena ?c)
 		(srodki ?s)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(taryfa
 		(nazwa ?t)
@@ -298,6 +322,10 @@
 		(pakiety)
 		(cena ?c)
 		(srodki ?s)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(taryfa
 		(nazwa ?t)
@@ -328,6 +356,10 @@
 		(pakiety)
 		(cena ?c)
 		(srodki ?s)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(taryfa
 		(nazwa ?t)
@@ -359,6 +391,11 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietMinut
 		(nazwa ?p)
@@ -374,6 +411,7 @@
 		(mms ?mms)
 		(net ?net)
 		(cel ?s)
+		(cena ?c)
 	)
 	=>
 	(assert
@@ -385,6 +423,7 @@
 			(mms ?mms)
 			(net ?net)
 			(cel ?s)
+			(cena ?c)
 		)
 	)
 )
@@ -393,6 +432,11 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietSMS
 		(nazwa ?p)
@@ -408,6 +452,7 @@
 		(mms ?mms)
 		(net ?net)
 		(cel ?s)
+		(cena ?c)
 	)
 	=>
 	(assert
@@ -419,6 +464,7 @@
 			(mms ?mms)
 			(net ?net)
 			(cel ?s)
+			(cena ?c)
 		)
 	)
 )
@@ -427,6 +473,11 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietMMS
 		(nazwa ?p)
@@ -442,6 +493,7 @@
 		(mms ?mms)
 		(net ?net)
 		(cel ?s)
+		(cena ?c)
 	)
 	=>
 	(assert
@@ -453,6 +505,7 @@
 			(sms ?sms)
 			(net ?net)
 			(cel ?s)
+			(cena ?c)
 		)
 	)
 )
@@ -463,6 +516,11 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietNet
 		(nazwa ?p)
@@ -477,6 +535,7 @@
 		(mms ?mms)
 		(net ?net)
 		(cel wsieci)
+		(cena ?c)
 	)
 	=>
 	(assert
@@ -488,6 +547,7 @@
 			(mms ?mms)
 			(net =(+ ?net ?pn))
 			(cel wsieci)
+			(cena ?c)
 		)
 	)
 )
@@ -498,6 +558,11 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(not (pakietMinut
 		(nazwa ?p)
@@ -526,6 +591,7 @@
 		(mms ?mms)
 		(net ?net)
 		(cel wsieci)
+		(cena ?c)
 	)
 	=>
 	(assert
@@ -537,6 +603,7 @@
 			(mms ?mms)
 			(net ?net)
 			(cel wsieci)
+			(cena ?c)
 		)
 	)
 )
@@ -546,6 +613,11 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(cena ?c)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(not (pakietMinut
 		(nazwa ?p)
@@ -570,6 +642,7 @@
 		(mms ?mms)
 		(net ?net)
 		(cel wszyscy)
+		(cena ?c)
 	)
 	=>
 	(assert
@@ -581,6 +654,7 @@
 			(mms ?mms)
 			(net ?net)
 			(cel wszyscy)
+			(cena ?c)
 		)
 	)
 )
@@ -592,6 +666,10 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietMinut
 		(nazwa ?p)
@@ -625,6 +703,10 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietSMS
 		(nazwa ?p)
@@ -658,6 +740,10 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietMMS
 		(nazwa ?p)
@@ -692,10 +778,10 @@
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
-	)
-	(taryfa
-		(nazwa ?t)
-		(siec ?siec)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietMinut
 		(nazwa ?p)
@@ -703,9 +789,13 @@
 		(min ?c)
 		(cel wsieci)
 	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?siec)
+	)
 	(cennik
 		(taryfa ?t)
-		(siec_docelowa $?s0 ?siec $?s2)
+		(siec_docelowa $?x ?siec $?y)
 		(pakiety)
 		(min ?min)
 		(sms ?sms)
@@ -715,24 +805,31 @@
 	(assert
 		(cennik
 			(taryfa ?t)
-			(siec_docelowa $?s0 ?siec $?s2)
+			(siec_docelowa ?siec)
 			(pakiety ?p)
 			(min ?c)
+			(sms ?sms)
+			(mms ?mms)
+		)
+		(cennik
+			(taryfa ?t)
+			(siec_docelowa $?x $?y)
+			(pakiety ?p)
+			(min ?min)
 			(sms ?sms)
 			(mms ?mms)
 		)
 	)
 )
 
-
 (defrule load-cenaSmsS
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
-	)
-	(taryfa
-		(nazwa ?t)
-		(siec ?siec)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietSMS
 		(nazwa ?p)
@@ -740,9 +837,13 @@
 		(sms ?c)
 		(cel wsieci)
 	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?siec)
+	)
 	(cennik
 		(taryfa ?t)
-		(siec_docelowa $?s0 ?siec $?s2)
+		(siec_docelowa $?x ?siec $?y)
 		(pakiety)
 		(min ?min)
 		(sms ?sms)
@@ -752,24 +853,31 @@
 	(assert
 		(cennik
 			(taryfa ?t)
-			(siec_docelowa $?s0 ?siec $?s2)
+			(siec_docelowa ?siec)
 			(pakiety ?p)
 			(min ?min)
 			(sms ?c)
 			(mms ?mms)
 		)
+		(cennik
+			(taryfa ?t)
+			(siec_docelowa $?x $?y)
+			(pakiety ?p)
+			(min ?min)
+			(sms ?sms)
+			(mms ?mms)
+		)
 	)
 )
-
 
 (defrule load-cenaMmsS
 	(zestaw
 		(taryfa ?t)
 		(pakiety $? ?p $?)
-	)
-	(taryfa
-		(nazwa ?t)
-		(siec ?siec)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
 	)
 	(pakietMMS
 		(nazwa ?p)
@@ -777,9 +885,13 @@
 		(mms ?c)
 		(cel wsieci)
 	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?siec)
+	)
 	(cennik
 		(taryfa ?t)
-		(siec_docelowa $?s0 ?siec $?s2)
+		(siec_docelowa $?x ?siec $?y)
 		(pakiety)
 		(min ?min)
 		(sms ?sms)
@@ -789,57 +901,15 @@
 	(assert
 		(cennik
 			(taryfa ?t)
-			(siec_docelowa $?s0 ?siec $?s2)
+			(siec_docelowa ?siec)
 			(pakiety ?p)
 			(min ?min)
 			(sms ?sms)
 			(mms ?c)
 		)
-	)
-)
-
-;pozostale
-(defrule load-cenaRest
-	(zestaw
-		(taryfa ?t)
-		(pakiety $? ?p $?)
-	)
-	(taryfa
-		(nazwa ?t)
-		(siec ?siec)
-	)
-	(or
-		(pakietMinut
-			(nazwa ?p)
-			(cel wsieci)
-		)
-		(pakietSMS
-			(nazwa ?p)
-			(cel wsieci)
-		)
-		(pakietMMS
-			(nazwa ?p)
-			(cel wsieci)
-		)
-	)
-	(cennik
-		(taryfa ?t)
-		(siec_docelowa $?s1)
-		(pakiety ?p)
-	)
-	(cennik
-		(taryfa ?t)
-		(siec_docelowa $?s2&~$?s1)
-		(pakiety)
-		(min ?min)
-		(sms ?sms)
-		(mms ?mms)
-	)
-	=>
-	(assert
 		(cennik
 			(taryfa ?t)
-			(siec_docelowa $?s2)
+			(siec_docelowa $?x $?y)
 			(pakiety ?p)
 			(min ?min)
 			(sms ?sms)
@@ -849,44 +919,797 @@
 )
 
 
-;
-
-(deftemplate filter
-	(multislot	siec	(type SYMBOL))
-	;(slot	max_cena	(type NUMBER))
+;pozostale
+(defrule load-cenaRest
+	(zestaw
+		(taryfa ?t)
+		(pakiety $? ?p $?)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
+	)
+	(or
+		(pakietMinut
+			(nazwa ?p)
+			(typ cena)
+			(cel wsieci)
+		)
+		(pakietSMS
+			(nazwa ?p)
+			(typ cena)
+			(cel wsieci)
+		)
+		(pakietMMS
+			(nazwa ?p)
+			(typ cena)
+			(cel wsieci)
+		)
+	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?siec)
+	)
+	(cennik
+		(taryfa ?t)
+		(siec_docelowa $? ?s $?)
+		(pakiety)
+		(min ?min)
+		(sms ?sms)
+		(mms ?mms)
+	)
+	(not (cennik
+		(taryfa ?t)
+		(siec_docelowa $? ?siec $?)
+		(pakiety)
+		(min ?min)
+		(sms ?sms)
+		(mms ?mms)
+	))
+	=>
+	(assert
+		(cennik
+			(taryfa ?t)
+			(siec_docelowa $?s)
+			(pakiety ?p)
+			(min ?min)
+			(sms ?sms)
+			(mms ?mms)
+		)
+	)
 )
 
+(defrule load-cenaRestD
+	(zestaw
+		(taryfa ?t)
+		(pakiety $? ?p $?)
+		(wykMin)
+		(wykSms)
+		(wykMms)
+		(wykNet)
+	)
+	(or
+		(pakietMinut
+			(nazwa ?p)
+			(typ darmowe)
+		)
+		(pakietSMS
+			(nazwa ?p)
+			(typ darmowe)
+		)
+		(pakietMMS
+			(nazwa ?p)
+			(typ darmowe)
+		)
+	)
+	(cennik
+		(taryfa ?t)
+		(siec_docelowa $?s)
+		(pakiety)
+		(min ?min)
+		(sms ?sms)
+		(mms ?mms)
+	)
+	=>
+	(assert
+		(cennik
+			(taryfa ?t)
+			(siec_docelowa $?s)
+			(pakiety ?p)
+			(min ?min)
+			(sms ?sms)
+			(mms ?mms)
+		)
+	)
+)
 
-(defrule filtruj-siec
-	(filter
-		(siec $? ?s $?)
+;
+(deftemplate doWykonania
+	(slot	siec_docelowa	(type SYMBOL))
+	(slot	min	(type NUMBER))
+	(slot	sms	(type NUMBER))
+	(slot	mms	(type NUMBER))
+	(slot	net	(type NUMBER))
+)
+;Reguly do operacji w sieci
+(defrule wykonajMinWsieciP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMin $?wyk)
 	)
 	(taryfa
 		(nazwa ?t)
 		(siec ?s)
 	)
-	?i1 <- (cennik
-		(taryfa ?t)
+	(doWykonania
+		(siec_docelowa ?s)
+		(min ?wm)
 	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMin $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(min ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(min ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykMin $?wyk ?s) (srodki (- ?srodki (* 0.01 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (min 0))
+)
+
+(defrule wykonajMinWsieciD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMin $?wyk)
+	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?s)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(min ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMin $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(min ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(min ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykMin $?wyk ?s))
+	(modify ?i2 (min (- ?dm ?wm)))
+)
+
+(defrule wykonajSmsWsieciP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykSms $?wyk)
+	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?s)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(sms ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykSms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(sms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(sms ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykSms $?wyk ?s) (srodki (- ?srodki (* 0.01 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (sms 0))
+)
+
+(defrule wykonajSmsWsieciD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykSms $?wyk)
+	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?s)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(sms ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykSms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(sms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(sms ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykSms $?wyk ?s))
+	(modify ?i2 (sms (- ?dm ?wm)))
+)
+
+(defrule wykonajMmsWsieciP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMms $?wyk)
+	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?s)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(mms ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(mms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(mms ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykMms $?wyk ?s) (srodki (- ?srodki (* 0.01 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (mms 0))
+)
+
+(defrule wykonajMmsWsieciD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMms $?wyk)
+	)
+	(taryfa
+		(nazwa ?t)
+		(siec ?s)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(mms ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(mms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(mms ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykMms $?wyk ?s))
+	(modify ?i2 (mms (- ?dm ?wm)))
+)
+
+
+
+;Reguly do operacji poza siecia
+(defrule wykonajMinPozaP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMin $?wyk)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(min ?wm)
+	)
+	(test (> ?wm 0))
+	(taryfa
+		(nazwa ?t)
+		(siec ~?s)
+	)
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMin $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wszyscy)
+		(min ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(min ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykMin $?wyk ?s) (srodki (- ?srodki (* 0.01 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (min 0))
+)
+
+(defrule wykonajMinPozaD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMin $?wyk)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(min ?wm)
+	)
+	(test (> ?wm 0))
+	(taryfa
+		(nazwa ?t)
+		(siec ~?s)
+	)
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMin $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wszyscy)
+		(min ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(min ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykMin $?wyk ?s))
+	(modify ?i2 (min (- ?dm ?wm)))
+)
+
+(defrule wykonajSmsPozaP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykSms $?wyk)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(sms ?wm)
+	)
+	(test (> ?wm 0))
+	(taryfa
+		(nazwa ?t)
+		(siec ~?s)
+	)
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykSms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wszyscy)
+		(sms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(sms ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykSms $?wyk ?s) (srodki (- ?srodki (* 0.01 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (sms 0))
+)
+
+(defrule wykonajSmsPozaD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykSms $?wyk)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(sms ?wm)
+	)
+	(test (> ?wm 0))
+	(taryfa
+		(nazwa ?t)
+		(siec ~?s)
+	)
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykSms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wszyscy)
+		(sms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(sms ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykSms $?wyk ?s))
+	(modify ?i2 (sms (- ?dm ?wm)))
+)
+
+(defrule wykonajMmsPozaP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMms $?wyk)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(mms ?wm)
+	)
+	(test (> ?wm 0))
+	(taryfa
+		(nazwa ?t)
+		(siec ~?s)
+	)
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wszyscy)
+		(mms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(mms ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykMms $?wyk ?s) (srodki (- ?srodki (* 0.01 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (mms 0))
+)
+
+(defrule wykonajMmsPozaD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykMms $?wyk)
+	)
+	(doWykonania
+		(siec_docelowa ?s)
+		(mms ?wm)
+	)
+	(test (> ?wm 0))
+	(taryfa
+		(nazwa ?t)
+		(siec ~?s)
+	)
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykMms $? ?s $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wszyscy)
+		(mms ?dm)
+	)
+	(cennik
+		(taryfa ?t)
+		(pakiety $?p)
+		(siec_docelowa $? ?s $?)
+		(mms ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykMms $?wyk ?s))
+	(modify ?i2 (mms (- ?dm ?wm)))
+)
+
+
+
+;Reguly do wykorzystania lacza
+(defrule wykonajNetP
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykNet $?wyk)
+	)
+	(doWykonania
+		(net ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykNet $? inet $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(net ?dm)
+	)
+	(transfer
+		(taryfa ?t)
+		(cena ?cm)
+	)
+	(test (<= ?dm ?wm))
+	=>
+	(modify ?i1 (wykNet $?wyk inet) (srodki (- ?srodki (* 100 ?cm (- ?wm ?dm)))))
+	(modify ?i2 (net 0))
+)
+
+(defrule wykonajNetD
+	?i1<-(zestaw
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(srodki ?srodki)
+		(wykNet $?wyk)
+	)
+	(doWykonania
+		(net ?wm)
+	)
+	(test (> ?wm 0))
+	(not
+		(zestaw
+			(taryfa ?t)
+			(pakiety $?p)
+			(cena ?c)
+			(srodki ?srodki)
+			(wykNet $? inet $?)
+		)
+	)
+	?i2<-(darmowe
+		(taryfa ?t)
+		(pakiety $?p)
+		(cena ?c)
+		(cel wsieci)
+		(net ?dm)
+	)
+	(transfer
+		(taryfa ?t)
+		(cena ?cm)
+	)
+	(test (> ?dm ?wm))
+	=>
+	(modify ?i1 (wykNet $?wyk inet))
+	(modify ?i2 (net (- ?dm ?wm)))
+)
+
+
+;fcelu
+(defrule usun-slabe
+	?i1<-(zestaw
+		(srodki ?s)
+	)
+	(test (< ?s 0))
 	=>
 	(retract ?i1)
 )
 
-
-(defrule filtruj-siec2
-	(filter
-		(siec $? ?s $?)
+(defrule init-fcelu
+	(not (fcelu ?))
+	(zestaw
+		(cena ?c)
+		(srodki ?s)
 	)
-	?i1 <- (taryfa
-		(siec ?s)
-		(nazwa ?t)
-	)
-	(not(cennik
-		(taryfa ?t)
-	))
-	?i2 <- (transfer
-		(taryfa ?t)
-	)
+	(test (> ?s 0))
 	=>
-	(retract ?i1 ?i2)
+	(assert (fcelu ?c))
 )
+
+(defrule do-fcelu
+	?i1<-(fcelu ?f)
+	(zestaw
+		(cena ?c)
+		(srodki ?s)
+	)
+	(test (> ?s 0))
+	(test (< ?c ?f))
+	=>
+	(retract ?i1)
+	(assert (fcelu ?c))
+)
+
+(defrule reset-fcelu
+	?i1<-(fcelu ?f)
+	(not (zestaw
+		(cena ?f)
+		(taryfa ?)
+		(pakiety $?)
+		(srodki ?)
+		(wykMin $?)
+		(wykSms $?)
+		(wykMms $?)
+		(wykNet $?)
+	))
+	=>
+	(retract ?i1)
+)
+
+(defrule pytanie
+	?i1<-(odp)
+	(fcelu ?f)
+	=>
+	(retract ?i1)
+	(assert (odp ?f))
+)
+
