@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class QuestionPanel {
-  private final int width = 350;
+  private final int width = 400;
 
   private JPanel panel;
   private JLabel questionLabel;
@@ -16,7 +16,26 @@ public class QuestionPanel {
   private Component mainPanel;
 
   public QuestionPanel() {
+    initGui();
+
+    panel.setPreferredSize(new Dimension(width, 200));
     answersPanel.setPreferredSize(new Dimension(width, 200));
+    answersPanel.setMaximumSize(new Dimension(width, 200));
+  }
+
+  private void initGui() {
+    panel = new JPanel(new BorderLayout());
+    questionLabel = new JLabel();
+
+    JPanel questionLabelPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    questionLabelPanel.setPreferredSize(new Dimension(width, 50));
+    questionLabelPanel.add(questionLabel);
+
+    answersPanel = new JPanel();
+    answersPanel.setLayout(new BoxLayout(answersPanel, BoxLayout.PAGE_AXIS));
+
+    panel.add(questionLabelPanel, BorderLayout.NORTH);
+    panel.add(answersPanel, BorderLayout.CENTER);
   }
 
   public void setQuestions(String question, String[] answers) {

@@ -17,6 +17,7 @@ public class Application {
   private QuestionPanel questionPanel = null;
   private MainPanel mainPanel;
   private Environment clips;
+  private JFrame frame;
 
   public static void main(String[] args) {
     SwingUtilities.invokeLater(new Runnable() {
@@ -39,7 +40,7 @@ public class Application {
 
   private void setupClips() {
     String fileLocation = getClass().getResource("/ui-clips.clp").getPath();
-    System.out.println(fileLocation);
+//    System.out.println(fileLocation);
     System.out.println("Setting up clips.");
 
     clips = new Environment();
@@ -53,6 +54,7 @@ public class Application {
     mainPanel.addNextButtonHandler(new MainPanel.NextButtonHandler() {
       @Override
       public void onClick() {
+        beforeUpdate();
         sendCurrentValue();
         next();
       }
@@ -61,17 +63,22 @@ public class Application {
     mainPanel.addPrevButtonHandler(new MainPanel.PrevButtonHandler() {
       @Override
       public void onClick() {
-        System.out.println("Cofanie jest zabronione.");
+        setupClips();
+        next();
+
         beforeUpdate();
-        prev();
+//        prev();
         updateCurrentFrame();
       }
     });
   }
 
   private void sendCurrentValue() {
-    String assertString = question.toClipsFact();
-    clips.assertString(assertString);
+    if (question != null) {
+      String assertString = question.toClipsFact();
+      System.out.println(assertString);
+      clips.assertString(assertString);
+    }
   }
 
   private void prev() {
@@ -79,11 +86,16 @@ public class Application {
 
   private void next() {
     // tries to get next question, if it fails tries to get results
-    clips.run(1);
+//    clips.run(1);
+    clips.run();
+
     if (!nextQuestion()) {
-      beforeUpdate();
+//      beforeUpdate();
       results();
+      question = null;
     }
+
+    frame.pack();
   }
 
   private void results() {
@@ -98,15 +110,15 @@ public class Application {
       if (key.equals("question")) {
         String value = v.get(0).getFactSlot("value").toString();
         nextQuestionKey = value;
-        System.out.println(nextQuestionKey);
-      }
+//        System.out.println("Get question: " + nextQuestionKey);
 
-      setQuestion(QuestionBundle.valueOf(nextQuestionKey));
-      updateCurrentFrame();
-      return true;
+        setQuestion(QuestionBundle.valueOf(nextQuestionKey));
+        updateCurrentFrame();
+        return true;
+      }
     } catch (Exception e) {
-      return false;
     }
+    return false;
   }
 
   private void setQuestion(QuestionBundle bundle) {
@@ -116,15 +128,16 @@ public class Application {
 
   private void beforeUpdate() {
     if (question != null) {
+
       question.setValue(questionPanel.getSelectedIndex());
       Object valueKey = question.getKey();
-      //System.out.println("Selected: " + valueKey);
+//      System.out.println("Selected: " + valueKey);
       questionPanel.getMainPanel().setVisible(false);
     }
   }
 
   private void setupMainFrame() {
-    JFrame frame = new JFrame("Tariff Adviser");
+    frame = new JFrame("Tariff Adviser");
     frame.add(mainPanel.getMainPanel());
     frame.pack();
     frame.setVisible(true);
