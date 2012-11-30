@@ -1,6 +1,6 @@
-import CLIPSJNI.Environment;
-import CLIPSJNI.MultifieldValue;
+import CLIPSJNI.*;
 
+import javax.lang.model.type.PrimitiveType;
 import javax.swing.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -101,6 +101,30 @@ public class Application {
 
   private void results() {
     System.out.println("No more questions. Showing results.");
+    JTextArea textarea = new JTextArea(10, 200);
+    mainPanel.setQuestionPanelContent(textarea);
+    textarea.setText("");
+
+
+    try {
+      PrimitiveValue p = clips.eval("(find-all-facts ((?i fcelu)) TRUE)");
+      System.out.println(p.get(0).getClass());
+
+
+
+
+      MultifieldValue v = (MultifieldValue) clips.eval("(find-all-facts ((?i zestaw)) TRUE)");
+      System.out.println("Found: " + v.size() + " results.");
+
+      for (int i = 0; i < v.size(); i++) {
+        String taryfa = v.get(i).getFactSlot("taryfa").toString();
+        String pakiety = v.get(i).getFactSlot("pakiety").toString();
+        String cena = v.get(i).getFactSlot("cena").toString();
+        textarea.append("Taryfa: " + taryfa + "   Pakiet: " + pakiety + "   Cena: " + cena + " PLN" + "\n");
+      }
+    } catch (Exception e) {
+
+    }
   }
 
   private boolean nextQuestion() {
